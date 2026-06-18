@@ -2478,7 +2478,7 @@ function initProjecao(){
   const ENTRADAS_PROJ = getEntradasProj();
   const FIXAS_MENSAIS = getFixasMensais();
   const VARIAVEIS_MEDIA = getVariaveisMedia();
-  const TOTAL_ENTRADAS = Object.values(ENTRADAS_PROJ).reduce((a,b)=>a+b,0);
+      const TOTAL_ENTRADAS = 41400; // Valor fixo: Pró-labore R$35k + Viger R$1.4k + Investimentos R$5k
   const TOTAL_FIXAS = FIXAS_MENSAIS.reduce((a,b)=>a+b.val,0);
   const TOTAL_VAR = VARIAVEIS_MEDIA.reduce((a,b)=>a+b.val,0);
   const nextMonth = getNextMonth(MONTHS_ALL[MONTHS_ALL.length-1]);
@@ -2492,7 +2492,8 @@ function initProjecao(){
     kpis.innerHTML=`
       <div class="kpi"><div class="kpi-label">Entradas Projetadas/mês</div>
         <div class="kpi-value green">${fmt(TOTAL_ENTRADAS)}</div>
-        <div class="kpi-deducao">Média histórica de receita · últimos 3 meses fechados</div></div>
+                  <div class="kpi-deducao">Entradas fixas projetadas · Pró-labore + Viger + Investimentos</div>
+        </div></div>
       <div class="kpi"><div class="kpi-label">Fixas + Parcel. (${MESES_LABELS[nextMonth]||nextMonth})</div>
         <div class="kpi-value red">${fmt(TOTAL_FIXAS+parcJun)}</div>
         <div class="kpi-deducao">Fixas ${fmt(TOTAL_FIXAS)} + Parcel. comprometidas ${fmt(parcJun)}</div></div>
